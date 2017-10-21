@@ -16,5 +16,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class VehicleTerminalApplication {
     public static void main(String[] args)  {
         SpringApplication.run(VehicleTerminalApplication.class, args);
+        // TODO: 2017/10/21
+
     }
 }
