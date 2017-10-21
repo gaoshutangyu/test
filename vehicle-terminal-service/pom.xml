@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>vehicle-terminal-root</artifactId>
+        <groupId>com.ne.sdii</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>vehicle-terminal-service</artifactId>
+
+
+    <properties>
+        <docker.imageName>
+            registry-vpc.cn-hangzhou.aliyuncs.com/meiauto/ice-service-cbsp-vehicle
+        </docker.imageName>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ne.boot</groupId>
+            <artifactId>ne-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.ne.boot</groupId>
+            <artifactId>ne-boot-starter-test-h2</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.ne.boot</groupId>
+            <artifactId>ne-boot-starter-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ne.boot</groupId>
+            <artifactId>ne-boot-starter-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ne.boot</groupId>
+            <artifactId>ne-boot-starter-poi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ne.boot</groupId>
+            <artifactId>ne-cloud-starter-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ne.boot</groupId>
+            <artifactId>ne-boot-starter-kafka</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.solr</groupId>
+            <artifactId>solr-solrj</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ne.boot</groupId>
+            <artifactId>ne-boot-starter-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.ne.boot</groupId>
+            <artifactId>ne-boot-starter-mongodb</artifactId>
+        </dependency>
+    </dependencies>
+
+
+</project>

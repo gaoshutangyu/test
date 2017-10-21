@@ -1,0 +1,57 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://${mysql_host:localhost}:${mysql_port:3306}/${mysql_dbname:ice_vehicle}?charset=utf8&allowMultiQueries=true
+    username: ${mysql_username}
+    password: ${mysql_password}
+  kafka:
+    bootstrap-servers: ${kafka_servers}
+  http:
+    multipart:
+      maxFileSize: ${max_file_size:10Mb}
+      maxRequestSize: ${max_request_size:10Mb}
+  data:
+    solr:
+      host: http://${solr_host:localhost}:${solr_port:8983}/solr/${solr_collection:vehicle}
+    mongodb:
+      uri: mongodb://${mongo_host:localhost}:${mongo_port:27017}/${mongo_db:dealer-dashboard}
+  redis:
+    host: ${redis_host:localhost}
+    port: ${redis_port:6379}
+    database: ${redis_db:3}
+
+server:
+  port: ${server-port:9001}
+  tomcat:
+    accesslog:
+      enabled: true
+      basedir: /logs
+      pattern: '%h %l %u %t "%r" %s %b %D'
+      prefix: access_log
+      directory: /logs/accesslog
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://${eureka_server}:${eureka_port}/eureka/
+    enabled: true
+  instance:
+    preferIpAddress: ${preferIpAddress:true}
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+
+loanVehicle:
+  locationOnlineField: ${locationOnlineField:l_upload_time}
+  locationOnlineTime: ${locationOnlineTime:10}
+
+vehicle:
+  orgField: ${orgField:false}
+  redisField: ${redisField:false}
+
+logging:
+  file: ./logs/application/vehicle.log
+  level:
+    com.ne: info

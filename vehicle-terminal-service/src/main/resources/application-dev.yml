@@ -1,0 +1,77 @@
+# Profile DEV : 用于在开发服务器上直接运行嵌入式的H2数据库启动应用
+# Tips : 使用该Profile需要在添加JVM启动参数 -Dspring.profiles.active=dev
+# 要在开发机启动应用，请直接在Idea中右键运行TestVehicleApplication的main方法
+
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    #东风通信环境
+    #url: jdbc:mysql://10.11.113.141:3306/lvoms
+    #username: lvoms
+    #password: lvoms2017
+    #172 开发环境
+    #url: jdbc:mysql://10.11.113.193:3306/voms
+    #username: root
+    #password: voms
+    #local 本地环境  ?allowMultiQueries=true
+#  大众开发环境
+#    url: jdbc:mysql://10.122.27.87/vehicle?charset=utf8&allowMultiQueries=true
+#    username: testbai
+#    password: 123456
+    url: jdbc:mysql://localhost/vehicle?charset=utf8&allowMultiQueries=true
+    username: root
+    password: root
+    initialize: false
+    continue-on-error: true
+  jackson:
+    default-property-inclusion: non_null
+  http:
+    multipart:
+      maxFileSize: ${max_file_size:10Mb}
+      maxRequestSize: ${max_request_size:10Mb}
+#  data:
+#    solr:
+#      host: http://106.14.79.81:8983/solr/vehicle
+#    mongodb:
+#      uri: mongodb://${mongo_host:localhost}:${mongo_port:27017}/${mongo_db:dealer-dashboard}
+  redis:
+    host: ${redis_host:localhost}
+    port: ${redis_port:6379}
+    database: ${redis_db:3}
+
+server:
+  port: ${server-port:9002}
+  tomcat:
+    accesslog:
+      enabled: true
+      basedir: /logs
+      pattern: '%h %l %u %t "%r" %s %b %D'
+      prefix: access_log
+      directory: /logs/accesslog
+
+loanVehicle:
+  locationOnlineField: ${locationOnlineField:l_upload_time}
+  locationOnlineTime: ${locationOnlineTime:10}
+
+vehicle:
+  orgField: ${orgField:false}
+  redisField: ${redisField:false}
+
+logging:
+  file: ./logs/application/vehicle.log
+  level:
+    com.ne: INFO
+
+#eureka:
+#  client:
+#    registerWithEureka: true
+#    fetchRegistry: true
+#    serviceUrl:
+##      defaultZone: http://${eureka_server}:${eureka_port}/eureka/
+#       defaultZone: http://${eureka_server:10.122.27.88}:${eureka_port:8010}/eureka/
+#    enabled: true
+#  instance:
+#    preferIpAddress: ${preferIpAddress:true}
+#    leaseRenewalIntervalInSeconds: 10
+#    metadataMap:
+#      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}

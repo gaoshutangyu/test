@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ne.boot</groupId>
+        <artifactId>ne-cloud-starter-parent</artifactId>
+        <version>1.4.0</version>
+    </parent>
+
+    <groupId>com.ne.sdii</groupId>
+    <artifactId>vehicle-terminal-root</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <docker.serverId>aliyun-vpc-docker-hub</docker.serverId>
+    </properties>
+    <!-- maven server ipaddress -->
+    <repositories>
+        <repository>
+            <id>nexus-repo</id>
+            <name>NE Repository</name>
+            <url>http://nexus.nx-code.com/content/groups/ne-server-maven/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <scm>
+        <connection>scm:git:https://git.nx-code.com/ne-ice-cbsp/vehicle.git</connection>
+        <developerConnection>scm:git:https://git.nx-code.com/ne-ice-cbsp/vehicle.git</developerConnection>
+    </scm>
+
+    <modules>
+        <module>vehicle-terminal-service</module>
+    </modules>
+
+
+</project>
