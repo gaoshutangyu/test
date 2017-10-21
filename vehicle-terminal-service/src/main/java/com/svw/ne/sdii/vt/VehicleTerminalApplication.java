@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 @EnableTransactionManagement
 public class VehicleTerminalApplication {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         SpringApplication.run(VehicleTerminalApplication.class, args);
     }
 }
